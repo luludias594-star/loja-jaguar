@@ -99,82 +99,6 @@ body {
     text-align: center;
 }
 
-/* ===== MENU HAMBURGUER ===== */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    z-index: 600;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 26px;
-    height: 3px;
-    background: #fff;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.menu-toggle.aberto span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle.aberto span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.aberto span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-/* menu mobile */
-.menu-mobile {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #1a1a1a;
-    z-index: 550;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-}
-
-.menu-mobile.aberto {
-    display: flex;
-}
-
-.menu-mobile a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 24px;
-    font-weight: 700;
-    transition: color 0.2s;
-}
-
-.menu-mobile a:hover {
-    color: #800080;
-}
-
-.menu-mobile-fechar {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    font-size: 28px;
-    color: #fff;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-
 /* ===== HERO ===== */
 .hero {
     position: relative;
@@ -197,7 +121,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: 90%;
 }
 
 .hero-titulo {
@@ -1298,6 +1221,7 @@ body {
     color: #fff;
 }
 
+/* aviso de nenhum resultado na busca (index/hero) */
 .busca-sem-resultado {
     display: none;
     text-align: center;
@@ -1338,6 +1262,7 @@ body {
 
 /* ===== MODAL LOGIN ===== */
 .modal-login-box {
+    /* sobrescreve o flex row padrao do modal-box */
     flex-direction: column;
     gap: 0;
     padding: 0;
@@ -1347,6 +1272,7 @@ body {
     overflow: hidden;
 }
 
+/* abas entrar / cadastrar */
 .login-tabs {
     display: flex;
     border-bottom: 1px solid #333;
@@ -1375,6 +1301,7 @@ body {
     color: #fff;
 }
 
+/* formulário dentro do modal */
 .login-form {
     padding: 28px 32px 32px;
 }
@@ -1427,6 +1354,7 @@ body {
     background: #6a006a;
 }
 
+/* divisor "ou continue com" */
 .login-divider {
     text-align: center;
     position: relative;
@@ -1458,6 +1386,7 @@ body {
     padding: 0 10px;
 }
 
+/* botoes sociais */
 .login-sociais {
     display: flex;
     gap: 12px;
@@ -1486,6 +1415,7 @@ body {
     color: #fff;
 }
 
+/* campo de senha com olho */
 .input-senha {
     position: relative;
 }
@@ -1534,6 +1464,191 @@ body {
     }
 }
 
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .checkout-container {
+        flex-direction: column;
+    }
+
+    .checkout-resumo {
+        width: 100%;
+        min-width: unset;
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    .navbar {
+        padding: 12px 4%;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .hero-titulo {
+        font-size: 36px;
+    }
+
+    .categoria {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .filtros {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .produtos {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .modal-box {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .modal-box img {
+        width: 100%;
+        min-width: unset;
+        height: 200px;
+    }
+
+    .carrinho-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f0f1a;
+    color: white;
+}
+
+header {
+    background: #800080;
+    text-align: center;
+    padding: 20px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f0f1a;
+    color: white;
+
+    /* TAMANHO BASE */
+    font-size: 18px;
+
+    /* animação */
+    animation: fadeIn 1s ease-in;
+}
+
+/* HEADER */
+header {
+    background: #800080;
+    text-align: center;
+    padding: 25px;
+}
+
+/* TÍTULOS */
+h1 {
+    font-size: 2.8rem;
+    /* maior destaque */
+    margin: 10px 0;
+}
+
+/* CONTEÚDO */
+.container {
+    padding: 40px;
+    text-align: center;
+}
+
+/* PARÁGRAFOS */
+p {
+    max-width: 700px;
+    margin: 15px auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* INPUTS */
+input,
+textarea {
+    width: 80%;
+    max-width: 450px;
+    margin: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+/* FOCO INPUT */
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #800080;
+    transform: scale(1.02);
+}
+
+/* BOTÕES */
+button {
+    padding: 12px 25px;
+    margin-top: 20px;
+    background: #800080;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+/* HOVER BOTÃO */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px #800080;
+}
+
+/* LOGO */
+.logo {
+    width: 130px;
+    margin-bottom: 15px;
+    animation: flutuar 3s infinite ease-in-out;
+}
+
+/* ANIMAÇÕES */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -1558,425 +1673,4 @@ body {
     100% {
         transform: translateY(0px);
     }
-}
-
-/* ===== RESPONSIVO ===== */
-@media (max-width: 1024px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .checkout-container {
-        flex-direction: column;
-    }
-
-    .checkout-resumo {
-        width: 100%;
-        min-width: unset;
-        position: static;
-    }
-}
-
-@media (max-width: 768px) {
-
-    /* navbar mobile */
-    .navbar {
-        padding: 12px 4%;
-    }
-
-    .logo img {
-        height: 60px;
-    }
-
-    /* esconde menu desktop, mostra hamburguer */
-    .menu {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    /* hero mobile */
-    .hero-titulo {
-        font-size: 32px;
-    }
-
-    .hero-sub {
-        font-size: 16px;
-    }
-
-    .hero-btn {
-        padding: 12px 24px;
-        font-size: 14px;
-    }
-
-    /* categoria mobile */
-    .categoria {
-        flex-direction: column;
-        padding: 16px;
-    }
-
-    /* filtros mobile — coluna limpa */
-    .filtros {
-        width: 100%;
-        min-width: unset;
-        display: flex;
-        flex-direction: column;
-        background: #1a1a1a;
-        border-radius: 10px;
-        padding: 16px;
-        margin-bottom: 20px;
-    }
-
-    .filtros h3 {
-        font-size: 16px;
-        margin-bottom: 12px;
-    }
-
-    .filtros p {
-        margin: 12px 0 6px;
-        font-size: 12px;
-    }
-
-    .filtros label {
-        font-size: 14px;
-        margin: 4px 0;
-    }
-
-    /* grupo de checkboxes lado a lado */
-    .filtros-grupo {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .btn-limpar-filtros {
-        margin-top: 16px;
-    }
-
-    /* produtos mobile */
-    .produtos {
-        margin-left: 0;
-    }
-
-    .top-bar h2 {
-        font-size: 20px;
-    }
-
-    /* grid 2 colunas no mobile */
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    /* modal mobile */
-    .modal-box {
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .modal-box img {
-        width: 100%;
-        min-width: unset;
-        height: 200px;
-    }
-
-    /* carrinho mobile */
-    .carrinho-sidebar {
-        width: 100%;
-        right: -100%;
-    }
-
-    /* checkout mobile */
-    .checkout-container {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .checkout-resumo {
-        width: 100%;
-        min-width: unset;
-        position: static;
-    }
-
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-}
-
-@media (max-width: 400px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-titulo {
-        font-size: 26px;
-    }
-}
-
-/* ===== AJUSTES EXTRAS DE RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
-    .icons {
-        gap: 12px;
-    }
-
-    .icons i {
-        font-size: 18px;
-    }
-
-    .cart-count {
-        top: -5px;
-        right: -8px;
-        font-size: 10px;
-        padding: 1px 5px;
-    }
-
-    .hero {
-        height: 60vh;
-    }
-
-    .hero-overlay {
-        bottom: 30px;
-        left: 5%;
-    }
-
-    .modal-box {
-        width: 95%;
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo img {
-        height: 50px;
-    }
-
-    .hero-titulo {
-        font-size: 24px;
-    }
-
-    .hero-sub {
-        font-size: 14px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-}
-
-/* AJUSTE PARA A IMAGEM DO HERO NÃO CORTAR NO CELULAR */
-@media (max-width: 768px) {
-    .hero {
-        height: auto;
-        /* Deixa a altura se ajustar ao conteúdo */
-        min-height: 300px;
-        /* Garante uma altura mínima */
-        display: flex;
-        flex-direction: column;
-    }
-
-    .hero-image {
-        position: relative;
-        height: auto;
-        max-height: 400px;
-        /* Limita a altura para não ficar gigante */
-        object-fit: contain;
-        /* Garante que a imagem apareça INTEIRA sem cortes */
-        background: #000;
-        /* Fundo preto caso a imagem não preencha tudo */
-    }
-
-    .hero-overlay {
-        position: relative;
-        /* Tira de cima da imagem para não tampar o rosto/detalhes */
-        bottom: 0;
-        left: 0;
-        padding: 20px;
-        text-align: center;
-        align-items: center;
-        background: #1a1a1a;
-        /* Fundo escuro para o texto ficar legível */
-    }
-}
-
-/* =============================================
-   APENAS AJUSTES MOBILE (NÃO ALTERA O DESKTOP)
-   ============================================= */
-@media (max-width: 768px) {
-
-    /* Navbar */
-    .navbar {
-        padding: 10px 4%;
-    }
-
-    .logo img {
-        height: 50px;
-        /* Logo menor no celular */
-    }
-
-    .menu {
-        display: none;
-        /* Esconde o menu de texto, usa o hambúrguer */
-    }
-
-    .menu-toggle {
-        display: flex;
-        /* Mostra o botão hambúrguer */
-    }
-
-    .icons {
-        gap: 12px;
-    }
-
-    /* Hero Section */
-    .hero {
-        height: 50vh;
-    }
-
-    .hero-titulo {
-        font-size: 28px;
-    }
-
-    .hero-sub {
-        font-size: 16px;
-    }
-
-    /* Grid de Produtos / Categorias */
-    .categoria {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .filtros {
-        width: 100%;
-        margin-bottom: 20px;
-        padding: 15px;
-        background: #1a1a1a;
-        border-radius: 8px;
-    }
-
-    .produtos {
-        margin-left: 0;
-    }
-
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 colunas no tablet/celular grande */
-        gap: 10px;
-    }
-
-    /* Modais */
-    .modal-box {
-        flex-direction: column;
-        width: 95%;
-        padding: 15px;
-        max-height: 95vh;
-    }
-
-    .modal-info h2 {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .grid {
-        grid-template-columns: 1fr;
-        /* 1 coluna em celulares pequenos */
-    }
-
-    .hero-titulo {
-        font-size: 22px;
-    }
-}
-
-/* =============================================
-   CONFIGURAÇÃO DO MENU HAMBÚRGUER (MOBILE)
-   ============================================= */
-
-/* 1. Esconde o menu de texto e mostra o botão no celular */
-@media (max-width: 768px) {
-    .menu {
-        display: none !important;
-        /* Esconde o menu horizontal */
-    }
-
-    .menu-toggle {
-        display: flex !important;
-        /* Mostra as 3 barrinhas */
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        z-index: 1000;
-    }
-
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: #fff;
-        border-radius: 3px;
-        transition: 0.3s;
-    }
-
-    /* Animação das barrinhas quando o menu abre */
-    .menu-toggle.aberto span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .menu-toggle.aberto span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.aberto span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-}
-
-/* 2. Estilo do Menu que abre (Menu Mobile) */
-.menu-mobile {
-    display: none;
-    /* Começa escondido */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #1a1a1a;
-    z-index: 999;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-}
-
-/* Quando a classe 'aberto' é adicionada via JS, o menu aparece */
-.menu-mobile.aberto {
-    display: flex !important;
-}
-
-.menu-mobile a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.menu-mobile-fechar {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 30px;
-    cursor: pointer;
 }

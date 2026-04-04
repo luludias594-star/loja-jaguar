@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onça — Domine as Ruas</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,9 +17,7 @@
         </div>
         <nav class="menu">
             <ul>
-                <li><a href="index.html">Início</a></li>
                 <li><a href="camisetas.html">Camisetas</a></li>
-                <li><a href="produtos.html">Produtos</a></li>
                 <li><a href="lancamentos.html">Lançamentos</a></li>
                 <li><a href="tenis.html">Tênis</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
@@ -29,25 +27,19 @@
         </nav>
 
         <div class="icons">
+            <!-- busca inline - expande ao clicar na lupa -->
             <div class="busca-wrap" id="buscaWrap">
                 <input type="text" id="campoBusca" class="campo-busca" placeholder="Buscar produtos...">
                 <i class="fa-solid fa-xmark busca-fechar" id="buscaFechar" onclick="fecharBusca()"></i>
             </div>
             <i class="fa-solid fa-magnifying-glass" id="btnBusca" onclick="toggleBusca()" title="Buscar"></i>
+            <!-- ícone de usuário - abre modal de login -->
             <i class="fa-regular fa-user" id="btnLogin" onclick="abrirLogin()" title="Entrar"></i>
             <i class="fa-regular fa-heart"></i>
             <div class="cart" id="cartIcon" onclick="window.location.href='checkout.html'">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-count" id="cartCount">0</span>
             </div>
-        </div>
-
-
-        <!-- BOTÃO HAMBURGUER -->
-        <div class="menu-toggle" id="menuToggle" onclick="toggleMenuMobile()">
-            <span></span>
-            <span></span>
-            <span></span>
         </div>
     </header>
 
@@ -59,23 +51,6 @@
             <a href="camisetas.html" class="hero-btn">Ver coleção</a>
         </div>
     </main>
-
-    <!-- MENU MOBILE -->
-    <div class="menu-mobile" id="menuMobile">
-        <button class="menu-mobile-fechar" onclick="fecharMenuMobile()">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <a href="index.html" onclick="fecharMenuMobile()">Início</a>
-        <a href="camisetas.html" onclick="fecharMenuMobile()">Camisetas</a>
-        <a href="produtos.html" onclick="fecharMenuMobile()">Produtos</a>
-        <a href="lancamentos.html" onclick="fecharMenuMobile()">Lançamentos</a>
-        <a href="tenis.html" onclick="fecharMenuMobile()">Tênis</a>
-        <a href="ofertas.html" onclick="fecharMenuMobile()">Ofertas</a>
-        <a href="sobre.html" onclick="fecharMenuMobile()">Sobre</a>
-        <a href="contato.html" onclick="fecharMenuMobile()">Contato</a>
-    </div>
-
-    </header>
 
     <!-- Sidebar do carrinho -->
     <div id="carrinhoSidebar" class="carrinho-sidebar">
@@ -94,7 +69,9 @@
     </div>
     <div id="overlayCarrinho" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
 
-    <!-- MODAL DE LOGIN -->
+    <!-- ========================================
+         MODAL DE LOGIN
+    ========================================= -->
     <div id="modalLogin" class="modal">
         <div class="modal-box modal-login-box">
 
@@ -102,11 +79,13 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
+            <!-- Abas -->
             <div class="login-tabs">
                 <button class="tab-btn ativo" id="tabEntrar" onclick="mostrarAba('entrar')">Entrar</button>
                 <button class="tab-btn" id="tabCadastrar" onclick="mostrarAba('cadastrar')">Cadastrar</button>
             </div>
 
+            <!-- Formulário de login -->
             <div id="abaEntrar" class="login-form">
                 <h2>Bem-vindo de volta!</h2>
                 <p class="login-sub">Entre com sua conta Onça</p>
@@ -141,6 +120,7 @@
                 </div>
             </div>
 
+            <!-- Formulário de cadastro -->
             <div id="abaCadastrar" class="login-form" style="display:none">
                 <h2>Crie sua conta</h2>
                 <p class="login-sub">É rápido e gratuito</p>
@@ -169,8 +149,10 @@
 
         </div>
     </div>
+    <!-- overlay reutilizado do checkout -->
     <div id="modalOverlay" class="modal-overlay" onclick="fecharLogin()"></div>
 
+    <!-- Toast de notificação -->
     <div id="toast" class="toast"></div>
 
     <script src="script.js"></script>
