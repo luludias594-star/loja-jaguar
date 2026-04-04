@@ -1771,3 +1771,38 @@ body {
         gap: 10px;
     }
 }
+
+/* AJUSTE PARA A IMAGEM DO HERO NÃO CORTAR NO CELULAR */
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        /* Deixa a altura se ajustar ao conteúdo */
+        min-height: 300px;
+        /* Garante uma altura mínima */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-image {
+        position: relative;
+        height: auto;
+        max-height: 400px;
+        /* Limita a altura para não ficar gigante */
+        object-fit: contain;
+        /* Garante que a imagem apareça INTEIRA sem cortes */
+        background: #000;
+        /* Fundo preto caso a imagem não preencha tudo */
+    }
+
+    .hero-overlay {
+        position: relative;
+        /* Tira de cima da imagem para não tampar o rosto/detalhes */
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        text-align: center;
+        align-items: center;
+        background: #1a1a1a;
+        /* Fundo escuro para o texto ficar legível */
+    }
+}
