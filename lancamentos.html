@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisetas — Onça</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logo-onça.png" alt="Logo Onça">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="camisetas.html">Camisetas</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="lancamentos.html">Lançamentos</a></li>
+                <li><a href="tenis.html">Tênis</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <!-- busca inline - igual ao index -->
+            <div class="busca-wrap" id="buscaWrap">
+                <input type="text" id="campoBusca" class="campo-busca" placeholder="Buscar produtos...">
+                <i class="fa-solid fa-xmark busca-fechar" id="buscaFechar" onclick="fecharBusca()"></i>
+            </div>
+            <i class="fa-solid fa-magnifying-glass" id="btnBusca" onclick="toggleBusca()" title="Buscar"></i>
+
+            <!-- icone de usuario -->
+            <i class="fa-regular fa-user" id="btnLogin" onclick="abrirLogin()" title="Entrar"></i>
+
+            <!-- favoritos -->
+            <div class="cart" onclick="abrirFavoritos()">
+                <i class="fa-regular fa-heart"></i>
+                <span class="cart-count" id="favCount" style="display:none;background:#e55">0</span>
+            </div>
+
+            <!-- carrinho -->
+            <div class="cart" id="cartIcon" onclick="abrirCarrinho()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="categoria">
+
+        <!-- FILTROS -->
+        <aside class="filtros">
+            <h3>Filtrar</h3>
+
+            <p>Tamanho</p>
+            <label><input type="checkbox" data-filtro="tamanho" value="P"> P</label>
+            <label><input type="checkbox" data-filtro="tamanho" value="M"> M</label>
+            <label><input type="checkbox" data-filtro="tamanho" value="G"> G</label>
+            <label><input type="checkbox" data-filtro="tamanho" value="GG"> GG</label>
+
+            <p>Cor</p>
+            <label><input type="checkbox" data-filtro="cor" value="Preto"> Preto</label>
+            <label><input type="checkbox" data-filtro="cor" value="Branco"> Branco</label>
+            <label><input type="checkbox" data-filtro="cor" value="Roxo"> Roxo</label>
+            <label><input type="checkbox" data-filtro="cor" value="Cinza"> Cinza</label>
+
+            <p>Preço</p>
+            <label><input type="checkbox" data-filtro="preco" value="0-60"> Até R$60</label>
+            <label><input type="checkbox" data-filtro="preco" value="60-100"> R$60 - R$100</label>
+
+            <button class="btn-limpar-filtros" onclick="limparFiltros()">Limpar filtros</button>
+        </aside>
+
+        <!-- PRODUTOS -->
+        <section class="produtos">
+            <div class="top-bar">
+                <h2>Camisetas</h2>
+                <select id="ordenar" onchange="ordenarProdutos()">
+                    <option value="">Ordenar por</option>
+                    <option value="menor">Menor preço</option>
+                    <option value="maior">Maior preço</option>
+                    <option value="nome">Nome A-Z</option>
+                </select>
+            </div>
+
+            <div class="grid" id="gridProdutos">
+
+                <div class="card" data-nome="Camiseta roxa" data-preco="50.90" data-img="assets/blusanovaroxa.png"
+                    data-cor="Roxo" data-tamanhos="P,M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/blusanovaroxa.png" alt="Camiseta roxa">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta roxa</p>
+                        <span class="card-preco">R$ 50,90</span>
+                    </div>
+                </div>
+
+                <div class="card" data-nome="bolsa nova" data-preco="60.90" data-img="assets/bolsanova.png"
+                    data-cor="Preto" data-tamanhos="P,M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/bolsanova.png" alt="bolsa nova">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">ecobag jagua</p>
+                        <span class="card-preco">R$ 40,90</span>
+                    </div>
+                </div>
+
+                <div class="card" data-nome="Camiseta hype" data-preco="69.90" data-img="assets/blusanovapretahype.png"
+                    data-cor="Preto" data-tamanhos="P,M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/blusanovapretahype.png" alt="Camiseta hype">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta hype</p>
+                        <span class="card-preco">R$ 69,90</span>
+                    </div>
+                </div>
+
+                <div class="card" data-nome="tênis" data-preco="350.90" data-img="assets/tenisjaguar.png"
+                    data-cor="azul" data-tamanhos="31,32,33,34,35,36,37,38,39,40,41,42">
+                    <div class="card-img-wrap">
+                        <img src="assets/tenisjaguar.png" alt="Tênis">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Tênis JAGUAR</p>
+                        <span class="card-preco">R$ 350,90</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <p id="semResultados" class="sem-resultados" style="display:none">
+                Nenhum produto encontrado.
+            </p>
+        </section>
+    </main>
+
+    <!-- MODAL DO PRODUTO -->
+    <div id="modalProduto" class="modal">
+        <div class="modal-box">
+            <button id="fecharModal" class="modal-fechar"><i class="fa-solid fa-xmark"></i></button>
+            <img id="modalImg" src="" alt="">
+            <div class="modal-info">
+                <h2 id="nomeProduto"></h2>
+                <p id="precoProduto"></p>
+                <h4>Escolha o tamanho:</h4>
+                <div class="tamanhos" id="tamanhosBtns"></div>
+                <div class="modal-acoes">
+                    <button id="addCarrinho"><i class="fa-solid fa-cart-shopping"></i> Adicionar ao carrinho</button>
+                    <button id="comprarAgora"><i class="fa-solid fa-bolt"></i> Comprar agora</button>
+                    <button id="btnFavModal"><i class="fa-regular fa-heart"></i> Favoritar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <!-- MODAL DE LOGIN (igual ao index) -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-box modal-login-box">
+            <button class="modal-fechar" onclick="fecharLogin()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="login-tabs">
+                <button class="tab-btn ativo" id="tabEntrar" onclick="mostrarAba('entrar')">Entrar</button>
+                <button class="tab-btn" id="tabCadastrar" onclick="mostrarAba('cadastrar')">Cadastrar</button>
+            </div>
+            <div id="abaEntrar" class="login-form">
+                <h2>Bem-vindo de volta!</h2>
+                <p class="login-sub">Entre com sua conta Onça</p>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="loginEmail" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="input-senha">
+                        <input type="password" id="loginSenha" placeholder="Sua senha">
+                        <i class="fa-regular fa-eye" id="toggleSenha" onclick="toggleVerSenha()"></i>
+                    </div>
+                </div>
+                <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
+                <button class="btn-login" onclick="fazerLogin()">
+                    <i class="fa-solid fa-right-to-bracket"></i> Entrar
+                </button>
+                <div class="login-divider"><span>ou continue com</span></div>
+                <div class="login-sociais">
+                    <button class="btn-social" onclick="loginSocial('Google')"><i class="fa-brands fa-google"></i>
+                        Google</button>
+                    <button class="btn-social" onclick="loginSocial('Facebook')"><i class="fa-brands fa-facebook"></i>
+                        Facebook</button>
+                </div>
+            </div>
+            <div id="abaCadastrar" class="login-form" style="display:none">
+                <h2>Crie sua conta</h2>
+                <p class="login-sub">É rápido e gratuito</p>
+                <div class="form-group">
+                    <label>Nome completo</label>
+                    <input type="text" id="cadNome" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="cadEmail" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" id="cadSenha" placeholder="Mínimo 6 caracteres">
+                </div>
+                <div class="form-group">
+                    <label>Confirmar senha</label>
+                    <input type="password" id="cadSenhaConfirm" placeholder="Repita a senha">
+                </div>
+                <button class="btn-login" onclick="fazerCadastro()">
+                    <i class="fa-solid fa-user-plus"></i> Criar conta
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Carrinho lateral -->
+    <div id="carrinhoSidebar" class="carrinho-sidebar">
+        <div class="sidebar-header">
+            <h3>Meu Carrinho</h3>
+            <span id="fecharSidebar" onclick="fecharCarrinho()"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+        <div id="carrinhoItens" class="carrinho-itens"></div>
+        <div class="sidebar-footer">
+            <div class="sidebar-total">
+                <span>Total:</span>
+                <span id="totalCarrinho">R$ 0,00</span>
+            </div>
+            <button onclick="window.location.href='checkout.html'" class="btn-finalizar">Finalizar compra</button>
+        </div>
+    </div>
+    <div id="overlayCarrinho" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
+
+    <!-- Favoritos lateral -->
+    <div id="favoritosSidebar" class="carrinho-sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fa-solid fa-heart" style="color:#e55;margin-right:8px"></i> Favoritos</h3>
+            <span onclick="fecharFavoritos()"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+        <div id="favoritosItens" class="carrinho-itens"></div>
+    </div>
+    <div id="overlayFavoritos" class="overlay-sidebar" onclick="fecharFavoritos()"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

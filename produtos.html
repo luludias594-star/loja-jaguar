@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logo-onça.png" alt="Logo Onça">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="camisetas.html">Camisetas</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="lancamentos.html">Lançamentos</a></li>
+                <li><a href="tenis.html">Tênis</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="cart" onclick="abrirFavoritos()">
+                <i class="fa-regular fa-heart"></i>
+                <span class="cart-count" id="favCount" style="display:none;background:#e55">0</span>
+            </div>
+            <div class="cart" id="cartIcon" onclick="abrirCarrinho()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="categoria">
+
+        <!-- FILTROS -->
+        <aside class="filtros">
+            <h3>Filtrar</h3>
+
+            <p>Tamanho</p>
+            <label><input type="checkbox" data-filtro="tamanho" value="P"> P</label>
+            <label><input type="checkbox" data-filtro="tamanho" value="M"> M</label>
+            <label><input type="checkbox" data-filtro="tamanho" value="G"> G</label>
+            <label><input type="checkbox" data-filtro="tamanho" value="GG"> GG</label>
+
+            <p>Cor</p>
+            <label><input type="checkbox" data-filtro="cor" value="Preto"> Preto</label>
+            <label><input type="checkbox" data-filtro="cor" value="Branco"> Branco</label>
+            <label><input type="checkbox" data-filtro="cor" value="Roxo"> Roxo</label>
+            <label><input type="checkbox" data-filtro="cor" value="Laranja"> Laranja</label>
+
+            <p>Preço</p>
+            <label><input type="checkbox" data-filtro="preco" value="0-60"> Até R$60</label>
+            <label><input type="checkbox" data-filtro="preco" value="60-100"> R$60 - R$100</label>
+
+            <button class="btn-limpar-filtros" onclick="limparFiltros()">Limpar filtros</button>
+        </aside>
+
+        <!-- PRODUTOS -->
+        <section class="produtos">
+            <div class="top-bar">
+                <h2>Produtos</h2>
+                <select id="ordenar" onchange="ordenarProdutos()">
+                    <option value="">Ordenar por</option>
+                    <option value="menor">Menor preço</option>
+                    <option value="maior">Maior preço</option>
+                    <option value="nome">Nome A-Z</option>
+                </select>
+            </div>
+
+            <div class="grid" id="gridProdutos">
+
+                <!-- Camiseta Masculina Preta -->
+                <div class="card" data-nome="Camiseta Masculina Preta" data-preco="150.00"
+                    data-img="assets/Camiseta Masculina Preta.png" data-cor="Preto" data-tamanhos="P,M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/Camiseta Masculina Preta.png" alt="Camiseta Masculina Preta">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta Masculina Preta</p>
+                        <span class="card-preco">R$ 150,00</span>
+                    </div>
+                </div>
+
+                <!-- Camiseta Masculina Branca -->
+                <div class="card" data-nome="Camiseta Masculina Branca" data-preco="150.00"
+                    data-img="assets/Camiseta Masculina Branca.png" data-cor="Branco" data-tamanhos="P,M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/Camiseta Masculina Branca.png" alt="Camiseta Masculina Branca">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta Masculina Branca</p>
+                        <span class="card-preco">R$ 150,00</span>
+                    </div>
+                </div>
+
+                <!-- Camiseta Masculina Roxa -->
+                <div class="card" data-nome="Camiseta Masculina Roxa" data-preco="180.00"
+                    data-img="assets/Camiseta  Masculina Roxa.png" data-cor="Roxo" data-tamanhos="P,M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/Camiseta  Masculina Roxa.png" alt="Camiseta Masculina Roxa">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta Masculina Roxa</p>
+                        <span class="card-preco">R$ 180,00</span>
+                    </div>
+                </div>
+
+                <!-- Camiseta Feminina Preta -->
+                <div class="card" data-nome="Camiseta Feminina Preta" data-preco="150.00"
+                    data-img="assets/Camiseta Feminina Preta.png" data-cor="Preto" data-tamanhos="P,M,G">
+                    <div class="card-img-wrap">
+                        <img src="assets/Camiseta Feminina Preta.png" alt="Camiseta Feminina Preta">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta Feminina Preta</p>
+                        <span class="card-preco">R$ 150,00</span>
+                    </div>
+                </div>
+
+                <!-- Camiseta Feminina Branca -->
+                <div class="card" data-nome="Camiseta Feminina Branca" data-preco="150.00"
+                    data-img="assets/Camiseta Feminina Branca.png" data-cor="Branco" data-tamanhos="M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/Camiseta Feminina Branca.png" alt="Camiseta Feminina Branca">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta Feminina Branca</p>
+                        <span class="card-preco">R$ 150,00</span>
+                    </div>
+                </div>
+
+                <!-- Camiseta Feminina Roxa -->
+                <div class="card" data-nome="Camiseta Feminina Roxa" data-preco="180.00"
+                    data-img="assets/Camiseta Feminina Roxa.png" data-cor="Roxo" data-tamanhos="P,M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/Camiseta Feminina Roxa.png" alt="Camiseta Feminina Roxa">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta Feminina Roxa</p>
+                        <span class="card-preco">R$ 180,00</span>
+                    </div>
+                </div>
+
+                <!-- Moletom Masculino Branco -->
+                <div class="card" data-nome="Moletom Masculino Branco" data-preco="200.00"
+                    data-img="assets/Moletom masculino Branco.png" data-cor="Branco" data-tamanhos="P,M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/Moletom masculino Branco.png" alt="Moletom Masculino Branco">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Moletom Masculino Branco</p>
+                        <span class="card-preco">R$ 200,00</span>
+                    </div>
+                </div>
+
+                <!-- Moletom Masculino Preto -->
+                <div class="card" data-nome="Moletom Masculino Preto" data-preco="200.00"
+                    data-img="assets/Moletom Masculino Preto.png" data-cor="Preto" data-tamanhos="M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/Moletom Masculino Preto.png" alt="Moletom Masculino Preto">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Moletom Masculino Preto</p>
+                        <span class="card-preco">R$ 200,00</span>
+                    </div>
+                </div>
+
+                <!-- Suéter Masculino Laranja -->
+                <div class="card" data-nome="Suéter Masculino Laranja" data-preco="195.00"
+                    data-img="assets/Suéter Masculino Laranja.png" data-cor="Laranja" data-tamanhos="M,G,GG">
+                    <div class="card-img-wrap">
+                        <img src="assets/Suéter Masculino Laranja.png" alt="Suéter Masculino Laranja">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Suéter Masculino Laranja</p>
+                        <span class="card-preco">R$ 195,00</span>
+                    </div>
+                </div>
+
+                <!-- Boné Preto -->
+                <div class="card" data-nome="Boné Preto" data-preco="60.00" data-img="assets/bonepreto.png"
+                    data-cor="Preto" data-tamanhos="Único">
+                    <div class="card-img-wrap">
+                        <img src="assets/bonepreto.png" alt="Boné Preto">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Boné Preto</p>
+                        <span class="card-preco">R$ 60,00</span>
+                    </div>
+                </div>
+
+                <!-- Chapéu Branco -->
+                <div class="card" data-nome="Chapéu Branco" data-preco="60.00" data-img="assets/chapeubranco.png"
+                    data-cor="Branco" data-tamanhos="Único">
+                    <div class="card-img-wrap">
+                        <img src="assets/chapeubranco.png" alt="Chapéu Branco">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Chapéu Branco</p>
+                        <span class="card-preco">R$ 60,00</span>
+                    </div>
+                </div>
+
+                <!-- Boné Roxo -->
+                <div class="card" data-nome="Boné Roxo" data-preco="60.00" data-img="assets/boneroxo.png"
+                    data-cor="Roxo" data-tamanhos="Único">
+                    <div class="card-img-wrap">
+                        <img src="assets/boneroxo.png" alt="Boné Roxo">
+                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Boné Roxo</p>
+                        <span class="card-preco">R$ 60,00</span>
+                    </div>
+                </div>
+
+            </div><!-- fim .grid -->
+
+            <p id="semResultados" class="sem-resultados" style="display:none">
+                Nenhum produto encontrado com esses filtros.
+            </p>
+
+        </section>
+    </main>
+
+    <!-- MODAL DO PRODUTO -->
+    <div id="modalProduto" class="modal">
+        <div class="modal-box">
+            <button id="fecharModal" class="modal-fechar"><i class="fa-solid fa-xmark"></i></button>
+            <img id="modalImg" src="" alt="">
+            <div class="modal-info">
+                <h2 id="nomeProduto"></h2>
+                <p id="precoProduto"></p>
+                <h4>Escolha o tamanho:</h4>
+                <div class="tamanhos" id="tamanhosBtns"></div>
+                <div class="modal-acoes">
+                    <button id="addCarrinho"><i class="fa-solid fa-cart-shopping"></i> Adicionar ao carrinho</button>
+                    <button id="comprarAgora"><i class="fa-solid fa-bolt"></i> Comprar agora</button>
+                    <button id="btnFavModal"><i class="fa-regular fa-heart"></i> Favoritar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <!-- TOAST de confirmação -->
+    <div id="toast" class="toast">✓ Produto adicionado ao carrinho!</div>
+
+    <!-- Carrinho lateral -->
+    <div id="carrinhoSidebar" class="carrinho-sidebar">
+        <div class="sidebar-header">
+            <h3>Meu Carrinho</h3>
+            <span id="fecharSidebar" onclick="fecharCarrinho()"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+        <div id="carrinhoItens" class="carrinho-itens"></div>
+        <div class="sidebar-footer">
+            <div class="sidebar-total">
+                <span>Total:</span>
+                <span id="totalCarrinho">R$ 0,00</span>
+            </div>
+            <button onclick="window.location.href='checkout.html'" class="btn-finalizar">Finalizar compra</button>
+        </div>
+    </div>
+    <div id="overlayCarrinho" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
+
+    <!-- FAVORITOS lateral -->
+    <div id="favoritosSidebar" class="carrinho-sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fa-solid fa-heart" style="color:#e55;margin-right:8px"></i> Favoritos</h3>
+            <span onclick="fecharFavoritos()"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+        <div id="favoritosItens" class="carrinho-itens"></div>
+    </div>
+    <div id="overlayFavoritos" class="overlay-sidebar" onclick="fecharFavoritos()"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

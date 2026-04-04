@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — Onça</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logo-onça.png" alt="Logo Onça">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="camisetas.html">Camisetas</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="lancamentos.html">Lançamentos</a></li>
+                <li><a href="tenis.html">Tênis</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-heart"></i>
+            <div class="cart" id="cartIcon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-page">
+
+        <div class="checkout-container">
+
+            <!-- COLUNA ESQUERDA: Resumo do pedido -->
+            <section class="checkout-resumo">
+                <h2><i class="fa-solid fa-bag-shopping"></i> Resumo do Pedido</h2>
+
+                <div id="resumoItens" class="resumo-itens">
+                    <!-- Itens gerados pelo JS -->
+                </div>
+
+                <div class="resumo-vazio" id="resumoVazio" style="display:none">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p>Seu carrinho está vazio.</p>
+                    <a href="camisetas.html" class="btn-voltar-loja">Ver produtos</a>
+                </div>
+
+                <div class="resumo-totais" id="resumoTotais">
+                    <div class="linha-total">
+                        <span>Subtotal</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="linha-total">
+                        <span>Frete</span>
+                        <span id="frete" class="frete-gratis">Grátis</span>
+                    </div>
+                    <div class="linha-total total-final">
+                        <span>Total</span>
+                        <span id="totalFinal">R$ 0,00</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLUNA DIREITA: Dados de entrega + pagamento -->
+            <section class="checkout-form">
+                <h2><i class="fa-solid fa-truck"></i> Dados de Entrega</h2>
+
+                <div class="form-group">
+                    <label>Nome completo</label>
+                    <input type="text" id="nomeCliente" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="emailCliente" placeholder="seu@email.com">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>CPF</label>
+                        <input type="text" id="cpfCliente" placeholder="000.000.000-00" maxlength="14">
+                    </div>
+                    <div class="form-group">
+                        <label>CEP</label>
+                        <input type="text" id="cepCliente" placeholder="00000-000" maxlength="9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Endereço</label>
+                    <input type="text" id="enderecoCliente" placeholder="Rua, número, complemento">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Cidade</label>
+                        <input type="text" id="cidadeCliente" placeholder="Cidade">
+                    </div>
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <select id="estadoCliente">
+                            <option value="">UF</option>
+                            <option>AC</option>
+                            <option>AL</option>
+                            <option>AP</option>
+                            <option>AM</option>
+                            <option>BA</option>
+                            <option>CE</option>
+                            <option>DF</option>
+                            <option>ES</option>
+                            <option>GO</option>
+                            <option>MA</option>
+                            <option>MT</option>
+                            <option>MS</option>
+                            <option>MG</option>
+                            <option>PA</option>
+                            <option>PB</option>
+                            <option>PR</option>
+                            <option>PE</option>
+                            <option>PI</option>
+                            <option>RJ</option>
+                            <option>RN</option>
+                            <option>RS</option>
+                            <option>RO</option>
+                            <option>RR</option>
+                            <option>SC</option>
+                            <option>SP</option>
+                            <option>SE</option>
+                            <option>TO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2 style="margin-top:30px"><i class="fa-solid fa-credit-card"></i> Pagamento</h2>
+
+                <div class="pagamento-opcoes">
+                    <label class="pagamento-opcao">
+                        <input type="radio" name="pagamento" value="cartao" checked>
+                        <span><i class="fa-solid fa-credit-card"></i> Cartão de crédito</span>
+                    </label>
+                    <label class="pagamento-opcao">
+                        <input type="radio" name="pagamento" value="pix">
+                        <span><i class="fa-brands fa-pix"></i> Pix</span>
+                    </label>
+                    <label class="pagamento-opcao">
+                        <input type="radio" name="pagamento" value="boleto">
+                        <span><i class="fa-solid fa-barcode"></i> Boleto</span>
+                    </label>
+                </div>
+
+                <div id="formCartao" class="form-cartao">
+                    <div class="form-group">
+                        <label>Número do cartão</label>
+                        <input type="text" id="numCartao" placeholder="0000 0000 0000 0000" maxlength="19">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Validade</label>
+                            <input type="text" id="validadeCartao" placeholder="MM/AA" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" id="cvvCartao" placeholder="000" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nome no cartão</label>
+                        <input type="text" id="nomeCartao" placeholder="Como está no cartão">
+                    </div>
+                </div>
+
+                <div id="formPix" class="form-pix" style="display:none">
+                    <div class="pix-info">
+                        <i class="fa-brands fa-pix"></i>
+                        <p>Após confirmar o pedido, você receberá um QR Code Pix para realizar o pagamento.</p>
+                    </div>
+                </div>
+
+                <div id="formBoleto" class="form-boleto" style="display:none">
+                    <div class="boleto-info">
+                        <i class="fa-solid fa-barcode"></i>
+                        <p>O boleto será gerado após a confirmação. Prazo de pagamento: 3 dias úteis.</p>
+                    </div>
+                </div>
+
+                <button id="btnConfirmar" class="btn-confirmar" onclick="confirmarPedido()">
+                    <i class="fa-solid fa-lock"></i> Confirmar Pedido
+                </button>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Modal de pedido confirmado -->
+    <div id="modalConfirmado" class="modal">
+        <div class="modal-box modal-sucesso">
+            <div class="sucesso-icon"><i class="fa-solid fa-check"></i></div>
+            <h2>Pedido confirmado!</h2>
+            <p>Obrigado pela sua compra. Em breve você receberá um e-mail de confirmação.</p>
+            <a href="index.html" class="btn-voltar-inicio">Voltar ao início</a>
+        </div>
+    </div>
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
