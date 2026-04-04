@@ -17,24 +17,18 @@
         </div>
         <nav class="menu">
             <ul>
+                <li><a href="index.html">Início</a></li>
                 <li><a href="camisetas.html">Camisetas</a></li>
                 <li><a href="lancamentos.html">Lançamentos</a></li>
+                <li><a href="produtos.html">Feminino</a></li>
                 <li><a href="tenis.html">Tênis</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
 
         <div class="icons">
-            <!-- busca inline - expande ao clicar na lupa -->
-            <div class="busca-wrap" id="buscaWrap">
-                <input type="text" id="campoBusca" class="campo-busca" placeholder="Buscar produtos...">
-                <i class="fa-solid fa-xmark busca-fechar" id="buscaFechar" onclick="fecharBusca()"></i>
-            </div>
-            <i class="fa-solid fa-magnifying-glass" id="btnBusca" onclick="toggleBusca()" title="Buscar"></i>
-            <!-- ícone de usuário - abre modal de login -->
-            <i class="fa-regular fa-user" id="btnLogin" onclick="abrirLogin()" title="Entrar"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-regular fa-heart"></i>
             <div class="cart" id="cartIcon" onclick="window.location.href='checkout.html'">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -52,11 +46,11 @@
         </div>
     </main>
 
-    <!-- Sidebar do carrinho -->
+    <!-- Modal do carrinho lateral -->
     <div id="carrinhoSidebar" class="carrinho-sidebar">
         <div class="sidebar-header">
             <h3>Meu Carrinho</h3>
-            <span id="fecharSidebar" onclick="fecharCarrinho()"><i class="fa-solid fa-xmark"></i></span>
+            <span id="fecharSidebar"><i class="fa-solid fa-xmark"></i></span>
         </div>
         <div id="carrinhoItens" class="carrinho-itens"></div>
         <div class="sidebar-footer">
@@ -67,93 +61,7 @@
             <button onclick="window.location.href='checkout.html'" class="btn-finalizar">Finalizar compra</button>
         </div>
     </div>
-    <div id="overlayCarrinho" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
-
-    <!-- ========================================
-         MODAL DE LOGIN
-    ========================================= -->
-    <div id="modalLogin" class="modal">
-        <div class="modal-box modal-login-box">
-
-            <button class="modal-fechar" onclick="fecharLogin()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <!-- Abas -->
-            <div class="login-tabs">
-                <button class="tab-btn ativo" id="tabEntrar" onclick="mostrarAba('entrar')">Entrar</button>
-                <button class="tab-btn" id="tabCadastrar" onclick="mostrarAba('cadastrar')">Cadastrar</button>
-            </div>
-
-            <!-- Formulário de login -->
-            <div id="abaEntrar" class="login-form">
-                <h2>Bem-vindo de volta!</h2>
-                <p class="login-sub">Entre com sua conta Onça</p>
-
-                <div class="form-group">
-                    <label>E-mail</label>
-                    <input type="email" id="loginEmail" placeholder="seu@email.com">
-                </div>
-                <div class="form-group">
-                    <label>Senha</label>
-                    <div class="input-senha">
-                        <input type="password" id="loginSenha" placeholder="Sua senha">
-                        <i class="fa-regular fa-eye" id="toggleSenha" onclick="toggleVerSenha()"></i>
-                    </div>
-                </div>
-
-                <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
-
-                <button class="btn-login" onclick="fazerLogin()">
-                    <i class="fa-solid fa-right-to-bracket"></i> Entrar
-                </button>
-
-                <div class="login-divider"><span>ou continue com</span></div>
-
-                <div class="login-sociais">
-                    <button class="btn-social" onclick="loginSocial('Google')">
-                        <i class="fa-brands fa-google"></i> Google
-                    </button>
-                    <button class="btn-social" onclick="loginSocial('Facebook')">
-                        <i class="fa-brands fa-facebook"></i> Facebook
-                    </button>
-                </div>
-            </div>
-
-            <!-- Formulário de cadastro -->
-            <div id="abaCadastrar" class="login-form" style="display:none">
-                <h2>Crie sua conta</h2>
-                <p class="login-sub">É rápido e gratuito</p>
-
-                <div class="form-group">
-                    <label>Nome completo</label>
-                    <input type="text" id="cadNome" placeholder="Seu nome">
-                </div>
-                <div class="form-group">
-                    <label>E-mail</label>
-                    <input type="email" id="cadEmail" placeholder="seu@email.com">
-                </div>
-                <div class="form-group">
-                    <label>Senha</label>
-                    <input type="password" id="cadSenha" placeholder="Mínimo 6 caracteres">
-                </div>
-                <div class="form-group">
-                    <label>Confirmar senha</label>
-                    <input type="password" id="cadSenhaConfirm" placeholder="Repita a senha">
-                </div>
-
-                <button class="btn-login" onclick="fazerCadastro()">
-                    <i class="fa-solid fa-user-plus"></i> Criar conta
-                </button>
-            </div>
-
-        </div>
-    </div>
-    <!-- overlay reutilizado do checkout -->
-    <div id="modalOverlay" class="modal-overlay" onclick="fecharLogin()"></div>
-
-    <!-- Toast de notificação -->
-    <div id="toast" class="toast"></div>
+    <div id="overlay" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
 
     <script src="script.js"></script>
 </body>
