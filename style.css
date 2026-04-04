@@ -1806,3 +1806,93 @@ body {
         /* Fundo escuro para o texto ficar legível */
     }
 }
+
+/* =============================================
+   APENAS AJUSTES MOBILE (NÃO ALTERA O DESKTOP)
+   ============================================= */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 10px 4%;
+    }
+
+    .logo img {
+        height: 50px;
+        /* Logo menor no celular */
+    }
+
+    .menu {
+        display: none;
+        /* Esconde o menu de texto, usa o hambúrguer */
+    }
+
+    .menu-toggle {
+        display: flex;
+        /* Mostra o botão hambúrguer */
+    }
+
+    .icons {
+        gap: 12px;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-titulo {
+        font-size: 28px;
+    }
+
+    .hero-sub {
+        font-size: 16px;
+    }
+
+    /* Grid de Produtos / Categorias */
+    .categoria {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .filtros {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #1a1a1a;
+        border-radius: 8px;
+    }
+
+    .produtos {
+        margin-left: 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 colunas no tablet/celular grande */
+        gap: 10px;
+    }
+
+    /* Modais */
+    .modal-box {
+        flex-direction: column;
+        width: 95%;
+        padding: 15px;
+        max-height: 95vh;
+    }
+
+    .modal-info h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+        /* 1 coluna em celulares pequenos */
+    }
+
+    .hero-titulo {
+        font-size: 22px;
+    }
+}
