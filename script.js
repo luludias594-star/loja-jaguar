@@ -817,3 +817,19 @@ function sacudirBotaoTamanho() {
 function formatarPreco(valor) {
     return 'R$ ' + valor.toFixed(2).replace('.', ',');
 }
+
+function toggleMenuMobile() {
+    const menu = document.getElementById('menuMobile');
+    const toggle = document.getElementById('menuToggle');
+    menu.classList.toggle('aberto');
+    toggle.classList.toggle('aberto');
+    document.body.style.overflow = menu.classList.contains('aberto') ? 'hidden' : '';
+}
+
+function fecharMenuMobile() {
+    const menu = document.getElementById('menuMobile');
+    const toggle = document.getElementById('menuToggle');
+    menu.classList.remove('aberto');
+    toggle.classList.remove('aberto');
+    document.body.style.overflow = '';
+}
