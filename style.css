@@ -1715,3 +1715,59 @@ body {
         font-size: 26px;
     }
 }
+
+/* ===== AJUSTES EXTRAS DE RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .icons {
+        gap: 12px;
+    }
+
+    .icons i {
+        font-size: 18px;
+    }
+
+    .cart-count {
+        top: -5px;
+        right: -8px;
+        font-size: 10px;
+        padding: 1px 5px;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .hero-overlay {
+        bottom: 30px;
+        left: 5%;
+    }
+
+    .modal-box {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 50px;
+    }
+
+    .hero-titulo {
+        font-size: 24px;
+    }
+
+    .hero-sub {
+        font-size: 14px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
