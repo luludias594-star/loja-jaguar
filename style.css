@@ -1696,3 +1696,9 @@ button:hover {
     border-radius: 20px;
     letter-spacing: 0.5px;
 }
+
+@media (max-width: 768px) {
+    body {
+        background-color: lightblue;
+    }
+}
