@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camisetas — Onça</title>
+    <title>Lançamentos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -28,33 +28,16 @@
             </ul>
         </nav>
         <div class="icons">
-            <!-- busca inline - igual ao index -->
-            <div class="busca-wrap" id="buscaWrap">
-                <input type="text" id="campoBusca" class="campo-busca" placeholder="Buscar produtos...">
-                <i class="fa-solid fa-xmark busca-fechar" id="buscaFechar" onclick="fecharBusca()"></i>
-            </div>
-            <i class="fa-solid fa-magnifying-glass" id="btnBusca" onclick="toggleBusca()" title="Buscar"></i>
-
-            <!-- icone de usuario -->
+            <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-regular fa-user" id="btnLogin" onclick="abrirLogin()" title="Entrar"></i>
-
-            <!-- favoritos -->
             <div class="cart" onclick="abrirFavoritos()">
                 <i class="fa-regular fa-heart"></i>
                 <span class="cart-count" id="favCount" style="display:none;background:#e55">0</span>
             </div>
-
-            <!-- carrinho -->
             <div class="cart" id="cartIcon" onclick="abrirCarrinho()">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-count" id="cartCount">0</span>
             </div>
-        </div>
-        <!-- BOTÃO HAMBURGUER -->
-        <div class="menu-toggle" id="menuToggle" onclick="toggleMenuMobile()">
-            <span></span>
-            <span></span>
-            <span></span>
         </div>
     </header>
 
@@ -74,7 +57,7 @@
             <label><input type="checkbox" data-filtro="cor" value="Preto"> Preto</label>
             <label><input type="checkbox" data-filtro="cor" value="Branco"> Branco</label>
             <label><input type="checkbox" data-filtro="cor" value="Roxo"> Roxo</label>
-            <label><input type="checkbox" data-filtro="cor" value="Cinza"> Cinza</label>
+            <label><input type="checkbox" data-filtro="cor" value="Laranja"> Laranja</label>
 
             <p>Preço</p>
             <label><input type="checkbox" data-filtro="preco" value="0-60"> Até R$60</label>
@@ -86,7 +69,7 @@
         <!-- PRODUTOS -->
         <section class="produtos">
             <div class="top-bar">
-                <h2>Camisetas</h2>
+                <h2>Lançamentos</h2>
                 <select id="ordenar" onchange="ordenarProdutos()">
                     <option value="">Ordenar por</option>
                     <option value="menor">Menor preço</option>
@@ -97,62 +80,49 @@
 
             <div class="grid" id="gridProdutos">
 
-                <div class="card" data-nome="Camiseta roxa" data-preco="50.90" data-img="assets/blusanovaroxa.png"
-                    data-cor="Roxo" data-tamanhos="P,M,G,GG">
+                <div class="card" data-nome="Regata cinza" data-preco="50.00" data-img="assets/blusaoferta.png"
+                    data-cor="Preta" data-tamanhos="P,M,G,GG">
                     <div class="card-img-wrap">
-                        <img src="assets/blusanovaroxa.png" alt="Camiseta roxa">
+                        <img src="assets/blusaoferta.png" alt="Regata cinza">
                         <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
                         <button class="card-btn-rapido">Ver produto</button>
                     </div>
                     <div class="card-info">
-                        <p class="card-nome">Camiseta roxa</p>
-                        <span class="card-preco">R$ 50,90</span>
+                        <p class="card-nome">Regata cinza</p>
+                        <span class="card-preco">R$ 50,00</span>
                     </div>
                 </div>
 
-                <div class="card" data-nome="bolsa nova" data-preco="60.90" data-img="assets/bolsanova.png"
-                    data-cor="Preto" data-tamanhos="P,M,G,GG">
+                <div class="card" data-nome="Tênis preto" data-preco="150.00" data-img="assets/tenisoferta2.png"
+                    data-cor="Preto" data-tamanhos="34,39,44">
                     <div class="card-img-wrap">
-                        <img src="assets/bolsanova.png" alt="bolsa nova">
+                        <img src="assets/tenisoferta2.png" alt="Tênis preto">
                         <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
                         <button class="card-btn-rapido">Ver produto</button>
                     </div>
                     <div class="card-info">
-                        <p class="card-nome">ecobag jagua</p>
-                        <span class="card-preco">R$ 40,90</span>
+                        <p class="card-nome">Tênis preto</p>
+                        <span class="card-preco">R$ 150,00</span>
                     </div>
                 </div>
 
-                <div class="card" data-nome="Camiseta hype" data-preco="69.90" data-img="assets/blusanovapretahype.png"
-                    data-cor="Preto" data-tamanhos="P,M,G,GG">
+                <div class="card" data-nome="Calça jeans marrom oferta" data-preco="100.00"
+                    data-img="assets/calçaoferta.png" data-cor="marrom" data-tamanhos="38,40,42,44,46,48">
                     <div class="card-img-wrap">
-                        <img src="assets/blusanovapretahype.png" alt="Camiseta hype">
+                        <img src="assets/calçaoferta.png" alt="calça jeans marrom oferta">
                         <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
                         <button class="card-btn-rapido">Ver produto</button>
                     </div>
                     <div class="card-info">
-                        <p class="card-nome">Camiseta hype</p>
-                        <span class="card-preco">R$ 69,90</span>
-                    </div>
-                </div>
-
-                <div class="card" data-nome="tênis" data-preco="350.90" data-img="assets/tenisjaguar.png"
-                    data-cor="azul" data-tamanhos="31,32,33,34,35,36,37,38,39,40,41,42">
-                    <div class="card-img-wrap">
-                        <img src="assets/tenisjaguar.png" alt="Tênis">
-                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
-                        <button class="card-btn-rapido">Ver produto</button>
-                    </div>
-                    <div class="card-info">
-                        <p class="card-nome">Tênis JAGUAR</p>
-                        <span class="card-preco">R$ 350,90</span>
+                        <p class="card-nome">Calça jeans marrom</p>
+                        <span class="card-preco">R$ 100,00</span>
                     </div>
                 </div>
 
             </div>
 
             <p id="semResultados" class="sem-resultados" style="display:none">
-                Nenhum produto encontrado.
+                Nenhum produto encontrado com esses filtros.
             </p>
         </section>
     </main>
@@ -177,7 +147,7 @@
     </div>
     <div id="modalOverlay" class="modal-overlay"></div>
 
-    <!-- MODAL DE LOGIN (igual ao index) -->
+    <!-- MODAL DE LOGIN -->
     <div id="modalLogin" class="modal">
         <div class="modal-box modal-login-box">
             <button class="modal-fechar" onclick="fecharLogin()"><i class="fa-solid fa-xmark"></i></button>
@@ -237,8 +207,8 @@
         </div>
     </div>
 
-    <!-- Toast -->
-    <div id="toast" class="toast"></div>
+    <!-- TOAST -->
+    <div id="toast" class="toast">✓ Produto adicionado ao carrinho!</div>
 
     <!-- Carrinho lateral -->
     <div id="carrinhoSidebar" class="carrinho-sidebar">
@@ -257,7 +227,7 @@
     </div>
     <div id="overlayCarrinho" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
 
-    <!-- Favoritos lateral -->
+    <!-- FAVORITOS lateral -->
     <div id="favoritosSidebar" class="carrinho-sidebar">
         <div class="sidebar-header">
             <h3><i class="fa-solid fa-heart" style="color:#e55;margin-right:8px"></i> Favoritos</h3>

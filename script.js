@@ -454,7 +454,7 @@ function abrirModal(card) {
     const nome = card.dataset.nome;
     const preco = parseFloat(card.dataset.preco);
     const img = card.dataset.img;
-    const tamanhos = card.dataset.tamanhos ? card.dataset.tamanhos.split(',') : ['P', 'M', 'G', 'GG'];
+    const tamanhos = card.dataset.tamanhos ? card.dataset.tamanhos.split(',') : [];
 
     produtoAtual = { nome, preco, img, tamanho: null };
 
@@ -463,13 +463,13 @@ function abrirModal(card) {
     document.getElementById('modalImg').src = img;
     document.getElementById('modalImg').alt = nome;
 
+    // ✅ CORREÇÃO: usa os tamanhos reais do card, sem sobrescrever com P/M/G/GG
     const container = document.getElementById('tamanhosBtns');
     container.innerHTML = '';
-    ['P', 'M', 'G', 'GG'].forEach(tam => {
+    tamanhos.forEach(tam => {
         const btn = document.createElement('button');
-        btn.textContent = tam;
-        if (!tamanhos.includes(tam)) btn.disabled = true;
-        btn.addEventListener('click', () => selecionarTamanho(btn, tam));
+        btn.textContent = tam.trim();
+        btn.addEventListener('click', () => selecionarTamanho(btn, tam.trim()));
         container.appendChild(btn);
     });
 
@@ -493,7 +493,7 @@ function fecharModal() {
 }
 
 function selecionarTamanho(btn, tam) {
-    document.querySelectorAll('.tamanhos button').forEach(b => b.classList.remove('selecionado'));
+    document.querySelectorAll('#tamanhosBtns button').forEach(b => b.classList.remove('selecionado'));
     btn.classList.add('selecionado');
     produtoAtual.tamanho = tam;
 }

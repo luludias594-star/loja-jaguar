@@ -3,9 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sobre</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre — Onça</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
 
     <header class="navbar">
         <div class="logo">
@@ -23,71 +27,126 @@
                 <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
-
         <div class="icons">
-            <!-- busca inline - expande ao clicar na lupa -->
-            <div class="busca-wrap" id="buscaWrap">
-                <input type="text" id="campoBusca" class="campo-busca" placeholder="Buscar produtos...">
-                <i class="fa-solid fa-xmark busca-fechar" id="buscaFechar" onclick="fecharBusca()"></i>
-            </div>
-            <i class="fa-solid fa-magnifying-glass" id="btnBusca" onclick="toggleBusca()" title="Buscar"></i>
-            <!-- ícone de usuário - abre modal de login -->
+            <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-regular fa-user" id="btnLogin" onclick="abrirLogin()" title="Entrar"></i>
-            <i class="fa-regular fa-heart"></i>
-            <div class="cart" id="cartIcon" onclick="window.location.href='checkout.html'">
+            <div class="cart" onclick="abrirFavoritos()">
+                <i class="fa-regular fa-heart"></i>
+                <span class="cart-count" id="favCount" style="display:none;background:#e55">0</span>
+            </div>
+            <div class="cart" id="cartIcon" onclick="abrirCarrinho()">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
-
-
     </header>
 
-</head>
+    <main>
+        <section class="container">
+            <h1>Sobre Nós</h1>
+            <p>Somos uma marca focada em estilo, atitude e autenticidade. Nossa missão é trazer roupas que representem
+                sua identidade.</p>
+            <p>Trabalhamos com peças exclusivas e designs modernos, sempre pensando no conforto e na qualidade.</p>
+            <p>Acreditamos que a moda é uma forma de expressão e queremos que nossos clientes se sintam confiantes e
+                únicos usando nossas roupas.</p>
+            <p>Junte-se a nós nessa jornada de estilo e atitude. Seja parte da nossa comunidade e domine as ruas com a
+                gente!</p>
+            <button onclick="window.location.href='contato.html'">Fale Conosco</button>
+        </section>
+    </main>
 
-<body>
+    <!-- MODAL DE LOGIN -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-box modal-login-box">
+            <button class="modal-fechar" onclick="fecharLogin()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="login-tabs">
+                <button class="tab-btn ativo" id="tabEntrar" onclick="mostrarAba('entrar')">Entrar</button>
+                <button class="tab-btn" id="tabCadastrar" onclick="mostrarAba('cadastrar')">Cadastrar</button>
+            </div>
+            <div id="abaEntrar" class="login-form">
+                <h2>Bem-vindo de volta!</h2>
+                <p class="login-sub">Entre com sua conta Onça</p>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="loginEmail" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <div class="input-senha">
+                        <input type="password" id="loginSenha" placeholder="Sua senha">
+                        <i class="fa-regular fa-eye" id="toggleSenha" onclick="toggleVerSenha()"></i>
+                    </div>
+                </div>
+                <a href="#" class="esqueceu-senha">Esqueceu a senha?</a>
+                <button class="btn-login" onclick="fazerLogin()">
+                    <i class="fa-solid fa-right-to-bracket"></i> Entrar
+                </button>
+                <div class="login-divider"><span>ou continue com</span></div>
+                <div class="login-sociais">
+                    <button class="btn-social" onclick="loginSocial('Google')"><i class="fa-brands fa-google"></i>
+                        Google</button>
+                    <button class="btn-social" onclick="loginSocial('Facebook')"><i class="fa-brands fa-facebook"></i>
+                        Facebook</button>
+                </div>
+            </div>
+            <div id="abaCadastrar" class="login-form" style="display:none">
+                <h2>Crie sua conta</h2>
+                <p class="login-sub">É rápido e gratuito</p>
+                <div class="form-group">
+                    <label>Nome completo</label>
+                    <input type="text" id="cadNome" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="cadEmail" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" id="cadSenha" placeholder="Mínimo 6 caracteres">
+                </div>
+                <div class="form-group">
+                    <label>Confirmar senha</label>
+                    <input type="password" id="cadSenhaConfirm" placeholder="Repita a senha">
+                </div>
+                <button class="btn-login" onclick="fazerCadastro()">
+                    <i class="fa-solid fa-user-plus"></i> Criar conta
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="modalOverlay" class="modal-overlay"></div>
 
-    <header>
-        <h1>Sobre Nós</h1>
-    </header>
+    <!-- TOAST -->
+    <div id="toast" class="toast"></div>
 
-    <section class="container">
-        <p>
-            Somos uma marca focada em estilo, atitude e autenticidade.
-            Nossa missão é trazer roupas que representem sua identidade.
-        </p>
+    <!-- Carrinho lateral -->
+    <div id="carrinhoSidebar" class="carrinho-sidebar">
+        <div class="sidebar-header">
+            <h3>Meu Carrinho</h3>
+            <span id="fecharSidebar" onclick="fecharCarrinho()"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+        <div id="carrinhoItens" class="carrinho-itens"></div>
+        <div class="sidebar-footer">
+            <div class="sidebar-total">
+                <span>Total:</span>
+                <span id="totalCarrinho">R$ 0,00</span>
+            </div>
+            <button onclick="window.location.href='checkout.html'" class="btn-finalizar">Finalizar compra</button>
+        </div>
+    </div>
+    <div id="overlayCarrinho" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
 
-        <p>
-            Trabalhamos com peças exclusivas e designs modernos,
-            sempre pensando no conforto e na qualidade.
-        </p>
-
-        <p>
-            Acreditamos que a moda é uma forma de expressão e queremos
-            que nossos clientes se sintam confiantes e únicos usando nossas roupas.
-        </p>
-
-        <p>
-            Junte-se a nós nessa jornada de estilo e atitude. Seja parte da nossa comunidade e domine as ruas com a
-            gente!
-        </p>
-
-        <button onclick="window.location.href='contato.html'">Fale Conosco</button>
-
-    </section>
+    <!-- FAVORITOS lateral -->
+    <div id="favoritosSidebar" class="carrinho-sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fa-solid fa-heart" style="color:#e55;margin-right:8px"></i> Favoritos</h3>
+            <span onclick="fecharFavoritos()"><i class="fa-solid fa-xmark"></i></span>
+        </div>
+        <div id="favoritosItens" class="carrinho-itens"></div>
+    </div>
+    <div id="overlayFavoritos" class="overlay-sidebar" onclick="fecharFavoritos()"></div>
 
     <script src="script.js"></script>
 </body>
 
 </html>
-
-<script>
-    function voltarHome() {
-        window.location.href = "index.html";
-    }
-
-    function enviarMensagem(event) {
-        event.preventDefault();
-        alert("Mensagem enviada com sucesso!");
-    }
-</script>
