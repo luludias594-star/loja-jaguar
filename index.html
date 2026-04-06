@@ -15,7 +15,17 @@
         <div class="logo">
             <img src="assets/logo-onça.png" alt="Logo Onça">
         </div>
-        <nav class="menu">
+
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="menu" id="menuNav">
+
+            <button class="menu-fechar" id="menuFechar" aria-label="Fechar menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="camisetas.html">Camisetas</a></li>
@@ -27,8 +37,17 @@
                 <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
+
+
+        <div class="menu-overlay" id="menuOverlay"></div>
+
         <div class="icons">
-            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <div class="busca-wrap" id="buscaWrap">
+                <input type="text" class="campo-busca" id="campoBusca" placeholder="Buscar...">
+                <span class="busca-fechar" onclick="fecharBusca()"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <i class="fa-solid fa-magnifying-glass" onclick="toggleBusca()"></i>
             <i class="fa-regular fa-user" id="btnLogin" onclick="abrirLogin()" title="Entrar"></i>
             <div class="cart" onclick="abrirFavoritos()">
                 <i class="fa-regular fa-heart"></i>
@@ -50,7 +69,7 @@
         </div>
     </main>
 
-    <!-- MODAL DE LOGIN -->
+
     <div id="modalLogin" class="modal">
         <div class="modal-box modal-login-box">
             <button class="modal-fechar" onclick="fecharLogin()"><i class="fa-solid fa-xmark"></i></button>
@@ -111,10 +130,10 @@
     </div>
     <div id="modalOverlay" class="modal-overlay"></div>
 
-    <!-- TOAST -->
+
     <div id="toast" class="toast"></div>
 
-    <!-- Carrinho lateral -->
+
     <div id="carrinhoSidebar" class="carrinho-sidebar">
         <div class="sidebar-header">
             <h3>Meu Carrinho</h3>
@@ -131,7 +150,7 @@
     </div>
     <div id="overlayCarrinho" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
 
-    <!-- FAVORITOS lateral -->
+
     <div id="favoritosSidebar" class="carrinho-sidebar">
         <div class="sidebar-header">
             <h3><i class="fa-solid fa-heart" style="color:#e55;margin-right:8px"></i> Favoritos</h3>
@@ -142,6 +161,34 @@
     <div id="overlayFavoritos" class="overlay-sidebar" onclick="fecharFavoritos()"></div>
 
     <script src="script.js"></script>
+    <script>
+        // Menu hamburguer
+        const menuToggle = document.getElementById('menuToggle');
+        const menuNav = document.getElementById('menuNav');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuFechar = document.getElementById('menuFechar');
+
+        function abrirMenu() {
+            menuNav.classList.add('aberto');
+            menuOverlay.classList.add('aberto');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fecharMenu() {
+            menuNav.classList.remove('aberto');
+            menuOverlay.classList.remove('aberto');
+            document.body.style.overflow = '';
+        }
+
+        menuToggle.addEventListener('click', abrirMenu);
+        menuFechar.addEventListener('click', fecharMenu);
+        menuOverlay.addEventListener('click', fecharMenu);
+
+        // Fecha o menu ao clicar em um link
+        menuNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', fecharMenu);
+        });
+    </script>
 </body>
 
 </html>
