@@ -4,182 +4,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lançamentos</title>
+    <title>Ofertas</title>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body>
+<body class="ofertas">
 
     <header class="navbar">
         <div class="logo">
-            <img src="assets/logo-onça.png" alt="Logo Onça">
+            <img src="logo/logosite.png" alt="Logo Onça">
         </div>
+
         <nav class="menu">
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="camisetas.html">Camisetas</a></li>
-                <li><a href="produtos.html">Produtos</a></li>
-                <li><a href="lancamentos.html">Lançamentos</a></li>
+                <li><a href="Lançamentos.html">Lançamentos</a></li>
+                <li><a href="moletom.html">Moletom</a></li>
+                <li><a href="bags.html">Bags</a></li>
                 <li><a href="tenis.html">Tênis</a></li>
-                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="ofertas.html" class="ativo">Ofertas</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
+
         <div class="icons">
             <i class="fa-solid fa-magnifying-glass"></i>
+
             <div class="cart" onclick="abrirFavoritos()">
                 <i class="fa-regular fa-heart"></i>
                 <span class="cart-count" id="favCount" style="display:none;background:#e55">0</span>
             </div>
-            <div class="cart" id="cartIcon" onclick="abrirCarrinho()">
+
+            <div class="cart" onclick="abrirCarrinho()">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
-
     </header>
 
     <main class="categoria">
 
         <!-- FILTROS -->
         <aside class="filtros">
+
             <h3>Filtrar</h3>
 
-            <p>Tamanho</p>
-            <label><input type="checkbox" data-filtro="tamanho" value="P"> P</label>
-            <label><input type="checkbox" data-filtro="tamanho" value="M"> M</label>
-            <label><input type="checkbox" data-filtro="tamanho" value="G"> G</label>
-            <label><input type="checkbox" data-filtro="tamanho" value="GG"> GG</label>
+            <p>DESCONTO</p>
+            <label><input type="checkbox"> Até 20%</label>
+            <label><input type="checkbox"> 20% - 40%</label>
+            <label><input type="checkbox"> 40%+</label>
 
-            <p>Cor</p>
-            <label><input type="checkbox" data-filtro="cor" value="Preto"> Preto</label>
-            <label><input type="checkbox" data-filtro="cor" value="Branco"> Branco</label>
-            <label><input type="checkbox" data-filtro="cor" value="Roxo"> Roxo</label>
-            <label><input type="checkbox" data-filtro="cor" value="Laranja"> Laranja</label>
+            <p>TAMANHO</p>
+            <label><input type="checkbox"> 39</label>
+            <label><input type="checkbox"> 40</label>
+            <label><input type="checkbox"> 41</label>
+            <label><input type="checkbox"> 42</label>
 
+            <p>COR</p>
+            <label><input type="checkbox"> Preto</label>
+            <label><input type="checkbox"> Branco</label>
+            <label><input type="checkbox"> Roxo</label>
+            <label><input type="checkbox"> Laranja</label>
 
-            <p>Preço</p>
-            <label><input type="checkbox" data-filtro="preco" value="0-60"> Até R$60</label>
-            <label><input type="checkbox" data-filtro="preco" value="60-100"> R$60 - R$100</label>
+            <p>PREÇO</p>
+            <label><input type="checkbox"> Até R$ 100</label>
+            <label><input type="checkbox"> R$ 100 - R$ 200</label>
+            <label><input type="checkbox"> R$ 200+</label>
 
-            <button class="btn-limpar-filtros" onclick="limparFiltros()">Limpar filtros</button>
+            <button class="btn-limpar-filtros">Limpar filtros</button>
+
         </aside>
 
         <!-- PRODUTOS -->
         <section class="produtos">
+
             <div class="top-bar">
-                <h2>Lançamentos</h2>
-                <select id="ordenar" onchange="ordenarProdutos()">
-                    <option value="">Ordenar por</option>
-                    <option value="menor">Menor preço</option>
-                    <option value="maior">Maior preço</option>
-                    <option value="nome">Nome A-Z</option>
+                <h2>Ofertas</h2>
+
+                <select>
+                    <option>Ordenar por</option>
+                    <option>Menor preço</option>
+                    <option>Maior preço</option>
+                    <option>Maior desconto</option>
                 </select>
             </div>
 
-            <div class="grid" id="gridProdutos">
+            <div class="grid">
 
-                <div class="card" data-nome="Regata cinza" data-preco="50.00" data-img="assets/blusaoferta.png"
-                    data-cor="Preta" data-tamanhos="P,M,G,GG">
+                <!-- CAMISETAS -->
+                <div class="card">
                     <div class="card-img-wrap">
-                        <img src="assets/blusaoferta.png" alt="Regata cinza">
-                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <span class="badge-oferta">-30%</span>
+                        <img src="assets/camisa_preta.png" alt="Regata preta">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
                         <button class="card-btn-rapido">Ver produto</button>
                     </div>
                     <div class="card-info">
-                        <p class="card-nome">Regata cinza</p>
-                        <span class="card-preco">R$ 50,00</span>
+                        <p class="card-nome">Regata Preta</p>
+                        <span class="preco-antigo">R$ 150,00</span>
+                        <span class="card-preco">R$ 105,00</span>
                     </div>
                 </div>
 
-                <div class="card" data-nome="Tênis preto" data-preco="150.00" data-img="assets/tenisoferta2.png"
-                    data-cor="Preto" data-tamanhos="34,44,39">
+                <div class="card">
                     <div class="card-img-wrap">
-                        <img src="assets/tenisoferta2.png" alt="Tênis preto">
-                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <span class="badge-oferta">-40%</span>
+                        <img src="assets/camisa_branca.png" alt="Camiseta branca">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
                         <button class="card-btn-rapido">Ver produto</button>
                     </div>
                     <div class="card-info">
-                        <p class="card-nome">Tênis preto</p>
+                        <p class="card-nome">Camiseta Com Manga Branca</p>
+                        <span class="preco-antigo">R$ 150,00</span>
+                        <span class="card-preco">R$ 90,00</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <span class="badge-oferta">-25%</span>
+                        <img src="assets/camisa_azul.png" alt="Camiseta azul">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Camiseta Azul</p>
+                        <span class="preco-antigo">R$ 150,00</span>
+                        <span class="card-preco">R$ 112,00</span>
+                    </div>
+                </div>
+
+                <!-- MOLETONS -->
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <span class="badge-oferta">-20%</span>
+                        <img src="assets/moletom_preto.png" alt="Moletom preto">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Moletom Preto</p>
+                        <span class="preco-antigo">R$ 200,00</span>
+                        <span class="card-preco">R$ 160,00</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <span class="badge-oferta">-35%</span>
+                        <img src="assets/moletom_branco.png" alt="Moletom branco">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Moletom Branco</p>
+                        <span class="preco-antigo">R$ 200,00</span>
+                        <span class="card-preco">R$ 130,00</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <span class="badge-oferta">-25%</span>
+                        <img src="assets/moletom_azul.png" alt="Moletom azul">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Moletom Azul Texturizado</p>
+                        <span class="preco-antigo">R$ 200,00</span>
                         <span class="card-preco">R$ 150,00</span>
                     </div>
                 </div>
 
-                <div class="card" data-nome="Calça jeans marrom oferta" data-preco="100.00"
-                    data-img="assets/calçaoferta.png" data-cor="marrom" data-tamanhos="38,40,42,44,46,48">
+                <!-- TÊNIS -->
+                <div class="card">
                     <div class="card-img-wrap">
-                        <img src="assets/calçaoferta.png" alt="calça jeans marrom oferta">
-                        <button class="card-btn-fav" title="Favoritar"><i class="fa-regular fa-heart"></i></button>
+                        <span class="badge-oferta">-30%</span>
+                        <img src="assets/tenis_roxo.png" alt="Tênis roxo">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
                         <button class="card-btn-rapido">Ver produto</button>
                     </div>
                     <div class="card-info">
-                        <p class="card-nome">Calça jeans marrom</p>
-                        <span class="card-preco">R$ 100,00</span>
+                        <p class="card-nome">Tênis Casual Roxo</p>
+                        <span class="preco-antigo">R$ 300,00</span>
+                        <span class="card-preco">R$ 210,00</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <span class="badge-oferta">-20%</span>
+                        <img src="assets/tenis_verde.png" alt="Tênis verde">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Tênis Esportivo Verde</p>
+                        <span class="preco-antigo">R$ 300,00</span>
+                        <span class="card-preco">R$ 240,00</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-wrap">
+                        <span class="badge-oferta">-15%</span>
+                        <img src="assets/tenis_azul.png" alt="Tênis azul">
+                        <button class="card-btn-fav"><i class="fa-regular fa-heart"></i></button>
+                        <button class="card-btn-rapido">Ver produto</button>
+                    </div>
+                    <div class="card-info">
+                        <p class="card-nome">Tênis Cano Longo Azul</p>
+                        <span class="preco-antigo">R$ 300,00</span>
+                        <span class="card-preco">R$ 255,00</span>
                     </div>
                 </div>
 
             </div>
-
-            <p id="semResultados" class="sem-resultados" style="display:none">
-                Nenhum produto encontrado com esses filtros.
-            </p>
         </section>
+
     </main>
 
-    <!-- MODAL DO PRODUTO -->
-    <div id="modalProduto" class="modal">
-        <div class="modal-box">
-            <button id="fecharModal" class="modal-fechar"><i class="fa-solid fa-xmark"></i></button>
-            <img id="modalImg" src="" alt="">
-            <div class="modal-info">
-                <h2 id="nomeProduto"></h2>
-                <p id="precoProduto"></p>
-                <h4>Escolha o tamanho:</h4>
-                <div class="tamanhos" id="tamanhosBtns"></div>
-                <div class="modal-acoes">
-                    <button id="addCarrinho"><i class="fa-solid fa-cart-shopping"></i> Adicionar ao carrinho</button>
-                    <button id="comprarAgora"><i class="fa-solid fa-bolt"></i> Comprar agora</button>
-                    <button id="btnFavModal"><i class="fa-regular fa-heart"></i> Favoritar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div id="modalOverlay" class="modal-overlay"></div>
-
-    <!-- TOAST de confirmação -->
-    <div id="toast" class="toast">✓ Produto adicionado ao carrinho!</div>
-
-    <!-- Carrinho lateral -->
-    <div id="carrinhoSidebar" class="carrinho-sidebar">
-        <div class="sidebar-header">
-            <h3>Meu Carrinho</h3>
-            <span id="fecharSidebar" onclick="fecharCarrinho()"><i class="fa-solid fa-xmark"></i></span>
-        </div>
-        <div id="carrinhoItens" class="carrinho-itens"></div>
-        <div class="sidebar-footer">
-            <div class="sidebar-total">
-                <span>Total:</span>
-                <span id="totalCarrinho">R$ 0,00</span>
-            </div>
-            <button onclick="window.location.href='checkout.html'" class="btn-finalizar">Finalizar compra</button>
-        </div>
-    </div>
-    <div id="overlayCarrinho" class="overlay-sidebar" onclick="fecharCarrinho()"></div>
-
-    <!-- FAVORITOS lateral -->
-    <div id="favoritosSidebar" class="carrinho-sidebar">
-        <div class="sidebar-header">
-            <h3><i class="fa-solid fa-heart" style="color:#e55;margin-right:8px"></i> Favoritos</h3>
-            <span onclick="fecharFavoritos()"><i class="fa-solid fa-xmark"></i></span>
-        </div>
-        <div id="favoritosItens" class="carrinho-itens"></div>
-    </div>
-    <div id="overlayFavoritos" class="overlay-sidebar" onclick="fecharFavoritos()"></div>
-
     <script src="script.js"></script>
+
 </body>
 
 </html>

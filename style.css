@@ -1674,3 +1674,25 @@ button:hover {
         transform: translateY(0px);
     }
 }
+
+/* OFERTAS */
+
+.ofertas .preco-antigo {
+    display: block;
+    font-size: 13px;
+    color: #888;
+    text-decoration: line-through;
+}
+
+.ofertas .badge-oferta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(135deg, #ff0055, #ff7a00);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
